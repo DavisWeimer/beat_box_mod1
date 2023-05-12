@@ -11,8 +11,13 @@ RSpec.describe LinkedList do
   it 'has a head' do
     list = LinkedList.new
 
-    expect(list.head).to eq(nil)
+    expect(list.head).to eq nil
   end
 
-  
+  it 'can append strings' do
+    list = LinkedList.new
+
+    expect(list.append("doop")).to be_instance_of(Node)
+    expect(list.head.next_node).to eq nil
+  end
 end
