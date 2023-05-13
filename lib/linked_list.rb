@@ -1,14 +1,19 @@
 class LinkedList
-  attr_accessor :head
-
+  attr_reader :head
   def initialize
-    @head = nil
+    @head = head
+    @node_counter = 0
   end
 
   def append(music)
     if @head == nil
       @head = Node.new(music)
+      @node_counter += 1
     end
+  end
+
+  def count
+    @node_counter
   end
 
 end
