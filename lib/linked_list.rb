@@ -16,4 +16,8 @@ class LinkedList
     @node_counter
   end
 
+  def to_string
+    @head.data
+  end
+
 end
