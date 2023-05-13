@@ -16,8 +16,16 @@ RSpec.describe LinkedList do
 
   it 'can append strings' do
     list = LinkedList.new
+    list.append("doop")
 
-    expect(list.append("doop")).to be_instance_of(Node)
+    expect(list.head.data).to eq("doop")
     expect(list.head.next_node).to eq nil
+  end
+
+  it 'counts one node in link' do
+    list = LinkedList.new
+    list.append("doop")
+
+    expect(list.count).to eq 1
   end
 end
