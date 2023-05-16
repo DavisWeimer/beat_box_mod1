@@ -65,7 +65,8 @@ then returning the counter integer
             TO STRING
 This method return the @head.data + and array(data_str) to
 a string. The loop runs until @head == nil and shovels
-
+@head.data into the array each recursion. Then the splat (*)
+removes the array brackets and returns the strings
 =end
   
   def to_string
@@ -75,7 +76,6 @@ a string. The loop runs until @head == nil and shovels
       data_str << curr_node.data
       curr_node = curr_node.next_node
     end
-    data_str * " "
-    require 'pry'; binding.pry
+    data_str * " " 
   end
 end

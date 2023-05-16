@@ -53,15 +53,74 @@ RSpec.describe LinkedList do
     list = LinkedList.new
     list.append("doop")
     list.append("deep")
-
+    
     expect(list.count).to eq 2
   end
 
-  it 'can multiple node data to string' do
+  it 'can push multiple node data to a string' do
     list = LinkedList.new
     list.append("doop")
     list.append("deep")
 
     expect(list.to_string).to eq("doop deep")
   end
+end
+
+RSpec.describe LinkedList do
+  # ITERATION 2 TESTS
+  it 'can append plop string' do
+    list = LinkedList.new
+    list.append("plop")
+    
+    expect(list.head.data).to eq("plop")
+    expect(list.head.next_node).to eq nil
+  end
+
+  it 'can push node data to a string' do
+    list = LinkedList.new
+    list.append("plop")
+    
+    expect(list.to_string).to eq("plop")
+  end
+
+  it 'can append suu string' do
+    list = LinkedList.new
+    list.append("plop")
+    
+    expect(list.head.data).to eq("plop")
+    expect(list.head.next_node).to eq nil
+    
+    list.append("suu")
+    
+    expect(list.head.next_node.data).to eq("suu")
+    expect(list.head.next_node.next_node).to eq nil
+  end
+
+  it 'can prepend dop string when head is nil' do
+    list = LinkedList.new
+    list.prepend("dop")
+    
+    expect(list.head.data).to eq("dop")
+  end
+
+  it 'can prepend dop string when head is not nil' do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+
+    expect(list.head.data).to eq("dop")
+    expect(list.head.next_node.data).to eq("plop")
+    expect(list.head.next_node.next_node.data).to eq("suu")
+    expect(list.head.next_node.next_node.next_node).to eq nil
+  end
+
+  it 'can push node data to string' do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    expect(list.to_string).to eq("dop plop suu")
+  end
+
 end
