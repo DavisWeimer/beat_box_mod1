@@ -48,7 +48,7 @@ is made the @head and then it's made the @head
 This method takes @head runs a loop
 until the @head == nil and adds +1 to
 the node_counter each time 
-then returning the counter integer
+then returns the counter integer
 =end
 
   def count
@@ -63,9 +63,9 @@ then returning the counter integer
 
 =begin
             TO STRING
-This method return the @head.data + and array(data_str) to
+This method returns the @data stored in the nodes to
 a string. The loop runs until @head == nil and shovels
-@head.data into the array each recursion. Then the splat (*)
+each nodes data into the array each recursion. Then the splat (*)
 removes the array brackets and returns the strings
 =end
   
@@ -77,5 +77,26 @@ removes the array brackets and returns the strings
       curr_node = curr_node.next_node
     end
     data_str * " " 
+  end
+
+
+=begin
+            INSERT
+This method uses a times loop to locate the current_node.
+By subtracting 1 from the insert argument value, you can loop
+to the precise index position of the prefixed node to where
+you will insert the new node. Then it stores the next_node value in the
+suffix_node, instantiate the new node, and then updates the new nodes next_node
+to the suffix node!
+=end
+
+  def insert(index, str)
+  curr_node = @head
+    (index - 1).times do
+      curr_node = curr_node.next_node
+    end
+    suffix_node = curr_node.next_node
+    curr_node.next_node = Node.new(str)
+    curr_node.next_node.next_node = suffix_node
   end
 end
