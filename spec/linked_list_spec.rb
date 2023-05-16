@@ -115,12 +115,34 @@ RSpec.describe LinkedList do
     expect(list.head.next_node.next_node.next_node).to eq nil
   end
 
-  it 'can push node data to string' do
+  it 'can push node data to a string' do
     list = LinkedList.new
     list.append("plop")
+    expect(list.to_string).to eq("plop")
+    
     list.append("suu")
+    expect(list.to_string).to eq("plop suu")
+    
     list.prepend("dop")
     expect(list.to_string).to eq("dop plop suu")
   end
 
+  it 'can insert node at indexed position' do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    list.insert(1, "woo")
+    expect(list.insert(1, "woo")).to eq(list.head.next_node.next_node)
+  end
+  
+  it 'can push inserted node data to a string' do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    list.insert(1, "woo")
+
+    expect(list.to_string).to eq("dop woo plop suu")
+  end
 end
