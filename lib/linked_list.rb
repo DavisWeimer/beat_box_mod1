@@ -8,8 +8,8 @@ class LinkedList
             APPEND
 This method checks is @head is nil, 
 if true instantiates new Node.
-Else while the @head loops until 
-it's nil and instantiates new Node on tail
+Else it loops until next_node is 
+nil and instantiates new Node at the end
 =end
 
   def append(str)
